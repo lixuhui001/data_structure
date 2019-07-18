@@ -52,6 +52,7 @@ public class MyQueue
             font = 0;
         }
         elems--;
+        System.out.println(elems+"---");
         return tmp;
     }
 
