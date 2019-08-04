@@ -1,4 +1,4 @@
-package com.lxh.stack;
+package com.lxh.structure.stack;
 
 /**
  * @Auther: LiXuHui

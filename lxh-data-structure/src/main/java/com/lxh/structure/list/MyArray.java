@@ -1,4 +1,4 @@
-package com.lxh.array;
+package com.lxh.structure.list;
 
 import java.util.Random;
 

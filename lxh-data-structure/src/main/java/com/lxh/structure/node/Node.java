@@ -1,4 +1,4 @@
-package com.lxh.node;
+package com.lxh.structure.node;
 
 /**
  * @Auther: LiXuHui

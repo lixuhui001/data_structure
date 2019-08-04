@@ -1,4 +1,4 @@
-package com.lxh.link;
+package com.lxh.structure.link;
 
 /**
  * @Auther: LiXuHui

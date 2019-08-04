@@ -1,11 +1,11 @@
-package com.lxh.queue;
+package com.lxh.structure.queue;
 
 /**
  * @Auther: LiXuHui
  * @Date: 2019/7/16/016 17:20
  * @Description:
  */
-public class MyQueue
+public class ArrayQueue01
 {
     // 数组
     private char[] arr;
@@ -17,17 +17,17 @@ public class MyQueue
     private int elems;
 
     // 队头
-    private int font;
+    private int front;
 
     // 队尾
     private int end;
 
-    public MyQueue(int maxSize)
+    public ArrayQueue01(int maxSize)
     {
         this.maxSize = maxSize;
         arr = new char[maxSize];
         elems = 0;
-        font = 0;
+        front = -1;
         end = -1;
     }
 
@@ -42,20 +42,28 @@ public class MyQueue
         elems++;
     }
 
-    // 移除数据
+    // 获取队列的数据, 出队列
     public char remove()
     {
-        char tmp = arr[font++];
+        char tmp = arr[++front];
 
-        if (font == maxSize)
+        if (front == maxSize)
         {
-            font = 0;
+            front = -1;
         }
         elems--;
         System.out.println(elems+"---");
         return tmp;
     }
 
+    // 显示队列的头数据， 注意不是取出数据
+    public int headQueue() {
+        // 判断
+        if (isEmpty()) {
+            throw new RuntimeException("队列空的，没有数据~~");
+        }
+        return arr[front + 1];
+    }
     // 是否为空
     public boolean isEmpty()
     {
@@ -74,9 +82,21 @@ public class MyQueue
         return elems;
     }
 
+    // 显示队列的所有数据
+    public void showQueue() {
+        // 遍历
+        if (isEmpty()) {
+            System.out.println("队列空的，没有数据~~");
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("arr[%d]=%d\n", i, arr[i]);
+        }
+    }
+
     public static void main(String[] args)
     {
-        MyQueue mq = new MyQueue(5);
+        ArrayQueue01 mq = new ArrayQueue01(5);
         System.out.println(mq.isEmpty());
         mq.insert('1');
         mq.insert('2');

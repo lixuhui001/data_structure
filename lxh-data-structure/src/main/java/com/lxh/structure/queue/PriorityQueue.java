@@ -1,4 +1,4 @@
-package com.lxh.queue;
+package com.lxh.structure.queue;
 
 
 /**
