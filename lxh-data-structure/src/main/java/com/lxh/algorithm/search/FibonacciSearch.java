@@ -2,6 +2,7 @@ package com.lxh.algorithm.search;
 
 import java.util.Arrays;
 
+
 public class FibonacciSearch {
 
 	public static int maxSize = 20;

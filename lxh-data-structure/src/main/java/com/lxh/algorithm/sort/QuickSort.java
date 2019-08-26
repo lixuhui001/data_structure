@@ -1,28 +1,25 @@
 package com.lxh.algorithm.sort;
 
-import java.util.Arrays;
 
-/**
- * @author: 李旭辉
- * @Date: 2019/8/18 0018 18:12
- * @description：
- */
+import java.util.Arrays;
+import java.util.Date;
+
+import static com.lxh.algorithm.sort.SortUtil.checkout;
+
 public class QuickSort {
 
-    public static void main(String[] args) {
-//        int[] arr = {-9, 78, 0, 23, 10, 10, 10, 10, -1};
-        int[] arr = new int[8000000];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
-        }
-        quickSort(arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length - 1; i++) {
-//            System.out.println(arr[i + 1] - arr[i]);
-            if (arr[i + 1] - arr[i] < 0) {
-                System.out.println("错误");
-            }
 
-        }
+    public static void main(String[] args) {
+        int[] arr = SortUtil.getIntGroup(100);
+        System.out.println("排序前: " + new Date());
+        System.out.println(Arrays.toString(arr));
+        quickSort(arr);
+        System.out.println("排序后: " + new Date() + "," + SortUtil.checkSort(arr));
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
     }
 
     /*分割策略：假设数组被排序的范围为left和right，center=（left+right）/
@@ -57,63 +54,13 @@ public class QuickSort {
             }
         }
         array[i] = base;
-//        checkout(array, left, right, i);
+        checkout(array, left, right, i);
         if (i - left > 0) {
             quickSort(array, left, i - 1);
         }
         if (right - i > 0) {
             quickSort(array, i + 1, right);
         }
-    }
-
-
-    static boolean checkout(int[] arr, int left, int right, int temp) {
-        boolean flag = false;
-//        System.out.println(temp + "---" + arr[temp]);
-        for (int i = left; i < temp; i++) {
-
-            if (arr[i] > arr[temp]) {
-                flag = true;
-            }
-
-        }
-        for (int i = temp; i < right; i++) {
-
-            if (arr[i] < arr[temp]) {
-                flag = true;
-            }
-
-        }
-        if (flag) {
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-            System.out.println("-********************");
-        }
-
-        return flag;
     }
 
 }
