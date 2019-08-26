@@ -7,6 +7,7 @@ import java.util.Arrays;
  * 1.二分查找算法基础上衍生（要求数组有序），区别仅在于取对比基数算法，
  * 2.插值查找取索引基数mid算法： 插值算法：int mid = left + (right - left) * (findVal - arr[left]) / (arr[right] - arr[left]);）
  * 3.小于midValue则左递归（left->mid-1），大于则右递归(mid+1->right)，直至返回或left>right
+ * 4.插值查找算法适合分布较为密集数列
  */
 public class InsertValueSearch {
 
@@ -26,9 +27,9 @@ public class InsertValueSearch {
         // 求出mid索引基数
         int mid = left + (right - left) * (findVal - arr[left]) / (arr[right] - arr[left]);
         int midVal = arr[mid];
-        if (findVal > midVal) { // 说明应该向右边递归
+        if (findVal > midVal) { // 右递归
             return insertValueSearch(arr, mid + 1, right, findVal);
-        } else if (findVal < midVal) { // 说明向左递归查找
+        } else if (findVal < midVal) { // 左递归
             return insertValueSearch(arr, left, mid - 1, findVal);
         } else {
             return mid;
