@@ -3,7 +3,7 @@ package com.lxh.algorithm.search;
 import java.util.Arrays;
 
 /**
- * 写插值查找算法
+ * 插值查找算法
  * 1.二分查找算法基础上衍生（要求数组有序），区别仅在于取对比基数算法，
  * 2.插值查找取索引基数mid算法： 插值算法：int mid = left + (right - left) * (findVal - arr[left]) / (arr[right] - arr[left]);）
  * 3.小于midValue则左递归（left->mid-1），大于则右递归(mid+1->right)，直至返回或left>right

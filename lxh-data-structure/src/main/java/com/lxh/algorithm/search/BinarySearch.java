@@ -17,14 +17,8 @@ public class BinarySearch {
         System.out.println("resIndexList=" + resIndexList);
     }
 
-    /**
-     * @Description: 单条二分查找法
-     * @author 李旭辉
-     * @date 2019/8/27 0027 0:20
-     */
+
     public static int binarySearch(int[] arr, int left, int right, int findVal) {
-
-
         // 当 left > right 时，递归结束
         if (left > right) {
             return -1;
@@ -43,12 +37,7 @@ public class BinarySearch {
 
     }
 
-    /**
-     * @Description: 二分法查找多条值
-     * @author 李旭辉
-     * @date 2019/8/27 0027 0:22
-     */
-
+ 
     public static List<Integer> binarySearch2(int[] arr, int left, int right, int findVal) {
 
         if (left > right) {

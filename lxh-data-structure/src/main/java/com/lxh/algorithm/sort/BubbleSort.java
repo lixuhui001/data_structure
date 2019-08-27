@@ -14,6 +14,7 @@ import java.util.Date;
  * 优化算法： 判断是否存在提前结束排序循环：
  * 当内层循环未发票数据交换则表示顺序已经是从小到大，可以提交结束
  */
+
 public class BubbleSort {
 
     public static void main(String[] args) {

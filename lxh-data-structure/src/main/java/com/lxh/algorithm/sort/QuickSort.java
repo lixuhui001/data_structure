@@ -6,6 +6,20 @@ import java.util.Date;
 
 import static com.lxh.algorithm.sort.SortUtil.checkout;
 
+/**
+ * 算法排序： 快速排序
+ * 时间复杂度： O(n^2)
+ * 快速排序原理 ：
+ * 通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列
+ * 选定一个元素为基数，并记录该元素，标记为空置位
+ * 对进行双向描述，先右后左，与基数进行比较，如不符合左小右大原则，则将被比较元素放入已空出位置，被比较元素原位置成为新生空置位
+ * 最终将基数放入最后空置位，此时，基数位置左小右大
+ *
+ * 再对其左右数组分别递归如上循环，直至递归中参数仅剩单元素截止
+ *
+ * <p>
+ * 优化算法： 可先对其中任意三个元素进行排序，增大基数选择的公平性可行性
+ */
 public class QuickSort {
 
 
@@ -22,9 +36,6 @@ public class QuickSort {
         quickSort(arr, 0, arr.length - 1);
     }
 
-    /*分割策略：假设数组被排序的范围为left和right，center=（left+right）/
-    2，对a[left]、a[right]和a[center]进行适当排序，取中值为中轴，将最小者放a[left]，
-    最大者放在a[right]，把中轴元与a[right-1]交换，并在分割阶段将i和j初始化为left+1和right-2。然后使用双向描述法，进行快排。*/
     public static void quickSort(int[] array, int left, int right) {
         if (left >= right) {
             return;
